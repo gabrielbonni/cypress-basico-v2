@@ -87,9 +87,19 @@ describe('Central de Atendimento ao Cliente TAT', function() {
         cy.get('.success').should('be.visible')
     })
 
-    it.only('Cria Comando2', function(){
+    it('Cria Comando2', function(){
         cy.PreencheMandatorio2('Gabriel','Bonni','gabriel@gmail.com','test')
         cy.contains('button', 'Enviar').click()
         cy.get('.success').should('be.visible')
+    })
+
+    it.only('Bootao Select', function(){
+        cy.PreencheMandatorio2('Gabriel','Bonni','gabriel@gmail.com','test')
+        cy.contains('button', 'Enviar').click()
+        cy.contains('#product', 'YouTube').select('YouTube').should('have.value', 'youtube')
+        cy.contains('#product', 'Mentoria').select(3).should('have.value', 'mentoria')
+        cy.get('#product').select('youtube').should('have.value', 'youtube')
+        cy.get('.success').should('be.visible')
+        cy.get('input[type="radio"][value="feedback"]').check()
     })
   })
