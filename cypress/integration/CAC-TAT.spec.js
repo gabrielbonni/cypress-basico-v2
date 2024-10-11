@@ -93,7 +93,7 @@ describe('Central de Atendimento ao Cliente TAT', function() {
         cy.get('.success').should('be.visible')
     })
 
-    it.only('Bootao Select', function(){
+    it('Bootao Select', function(){
         cy.PreencheMandatorio2('Gabriel','Bonni','gabriel@gmail.com','test')
         cy.contains('button', 'Enviar').click()
         cy.contains('#product', 'YouTube').select('YouTube').should('have.value', 'youtube')
